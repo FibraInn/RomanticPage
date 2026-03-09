@@ -3,440 +3,602 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tu historia en una página - Amor eterno</title>
+<title>Amor Eterno - Tu Historia en una Página</title>
 <style>
-  /* Colores oscuros románticos */
+  /* --- PALETA DE COLORES PREMIUM --- */
   :root {
-    --fondo-principal: #2D1E2F;       /* púrpura oscuro */
-    --fondo-secundario: #3D2C3E;     /* morado más suave */
-    --color-texto: #EADBDD;          /* rosa empolvado claro */
-    --color-titulos: #F4A7B9;        /* rosa empolvado */
-    --color-acento: #E2C79A;         /* dorado suave */
-    --color-enfasis: #8B2E45;        /* burdeos coral profundo */
-    --color-botones: #8B2E45;
+    --fondo-oscuro: #1A0F1D;         /* Fondo base muy oscuro */
+    --fondo-principal: #2D1E2F;      /* Púrpura oscuro profundo */
+    --fondo-secundario: #3D2C3E;     /* Morado suave */
+    --color-texto: #EADBDD;          /* Rosa empolvado claro */
+    --color-titulos: #F4A7B9;        /* Rosa empolvado */
+    --color-acento: #E2C79A;         /* Dorado suave */
+    --color-enfasis: #8B2E45;        /* Burdeos coral profundo */
     --color-botones-hover: #b44b6f;
-    --color-fondo-notas: #4A3346;
-    --color-borde-notas: #E2C79A;
+    --sombra-premium: 0 10px 30px rgba(0,0,0,0.5);
+    --transicion: all 0.4s ease;
   }
 
-  /* Reset */
-  body, ul {
-    margin: 0;
-    padding: 0;
-  }
+  /* --- RESET Y ESTILOS BASE --- */
+  * { box-sizing: border-box; }
+  body, ul, h1, h2, p { margin: 0; padding: 0; }
 
   body {
-    font-family: 'Georgia', serif;
-    background: url('https://plus.unsplash.com/premium_photo-1706520337246-f7c0490f71d7?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29yYXpvbmVzJTIwZGUlMjBhbW9yfGVufDB8fDB8fHww') no-repeat center center fixed;
-    background-size: cover;
+    font-family: 'Lora', 'Georgia', serif; /* Fuente más elegante */
+    background-color: var(--fondo-oscuro);
+    background-image: 
+      radial-gradient(at 10% 10%, rgba(139, 46, 69, 0.15) 0px, transparent 50%),
+      radial-gradient(at 90% 90%, rgba(226, 199, 154, 0.05) 0px, transparent 50%);
     color: var(--color-texto);
-    line-height: 1.5;
+    line-height: 1.8;
+    overflow-x: hidden;
   }
 
   .container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 25px 20px;
-    background-color: var(--fondo-principal);
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    padding-bottom: 60px;
   }
 
+  /* --- ANIMACIONES DE ENTRADA --- */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+  }
+
+  /* --- HEADER MAJESTUOSO --- */
   header {
-    background-image: url('https://media.istockphoto.com/id/1367357589/es/foto/cielo-rojo-en-forma-de-coraz%C3%B3n-al-atardecer-hermoso-paisaje-con-flores-me-encanta-el-fondo-con.jpg');
+    height: 80vh;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(45, 30, 47, 1)), 
+                      url('https://media.istockphoto.com/id/1367357589/es/foto/cielo-rojo-en-forma-de-coraz%C3%B3n-al-atardecer-hermoso-paisaje-con-flores-me-encanta-el-fondo-con.jpg');
     background-size: cover;
     background-position: center;
-    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
-    border-radius: 0 0 20px 20px;
-    box-shadow: inset 0 0 100px rgba(0,0,0,0.7);
+    border-radius: 0 0 50px 50px;
+    box-shadow: var(--sombra-premium);
+    position: relative;
   }
 
   header h1 {
-    background-color: rgba(0,0,0,0.65);
-    padding: 30px 40px;
-    border-radius: 15px;
-    font-size: 2.8em;
+    background: rgba(26, 15, 29, 0.7);
+    padding: 40px 60px;
+    border-radius: 20px;
+    font-size: 3.2em;
     font-weight: 700;
-    font-family: 'Georgia', serif;
-    text-shadow: 1px 1px 5px #8B2E45;
+    color: var(--color-titulos);
+    border: 2px solid var(--color-acento);
+    text-shadow: 0 2px 10px rgba(139,46,69,0.8);
+    backdrop-filter: blur(5px);
+    max-width: 80%;
   }
 
+  header::after {
+    content: '👇';
+    position: absolute;
+    bottom: 30px;
+    font-size: 2em;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+
+  /* --- SECCIONES GENERALES --- */
   section {
-    margin-top: 40px;
-    padding: 25px 30px;
-    background-color: var(--fondo-secundario);
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(139,46,69,0.3);
+    margin-top: 60px;
+    padding: 40px;
+    background-color: var(--fondo-principal);
+    border-radius: 25px;
+    box-shadow: var(--sombra-premium);
+    border: 1px solid rgba(226, 199, 154, 0.1);
+    transition: var(--transicion);
+  }
+
+  section:hover {
+    border-color: rgba(226, 199, 154, 0.3);
+    transform: translateY(-5px);
   }
 
   section h2 {
     color: var(--color-titulos);
-    font-size: 2em;
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--color-acento);
-    padding-bottom: 8px;
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  /* Galería */
+  section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-acento);
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+
+  /* --- CONTADOR DE TIEMPO (NUEVO) --- */
+  .contador-amor {
+    text-align: center;
+    background: linear-gradient(145deg, var(--fondo-secundario), var(--fondo-principal));
+    border: 2px solid var(--color-acento);
+  }
+
+  .contador-amor p { font-size: 1.2em; color: var(--color-acento); margin-bottom: 10px; }
+
+  #reloj {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--color-titulos);
+    text-shadow: 0 0 10px rgba(244, 167, 185, 0.5);
+    font-family: 'Courier New', monospace; /* Estilo digital/reloj */
+  }
+
+  /* --- GALERÍA DE LUJO --- */
   .galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+  }
+
+  .galeria-item {
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    position: relative;
+    border: 2px solid transparent;
+    transition: var(--transicion);
+  }
+
+  .galeria-item:hover {
+    border-color: var(--color-acento);
+    transform: scale(1.03);
   }
 
   .galeria img {
     width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: var(--transicion);
   }
 
-  .galeria img:hover {
-    transform: scale(1.05);
+  .galeria-item:hover img {
+    transform: scale(1.1) rotate(1deg);
   }
 
-  /* Textos en listas con corazones */
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
+  /* --- ÁBRELO CUANDO... (INTERACTIVO) --- */
+  .abrelo { text-align: center; }
 
-  ul li::before {
-    content: "💖 ";
-  }
-
-  /* Botones de sección "Ábrelo cuando..." */
-  .abrelo {
-    text-align: center;
+  .abrelo-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
   }
 
   .abrelo button {
-    margin: 6px 12px;
-    background-color: var(--color-botones);
-    color: white;
-    padding: 12px 22px;
-    border: none;
-    border-radius: 10px;
+    background-color: var(--fondo-secundario);
+    color: var(--color-acento);
+    padding: 15px 25px;
+    border: 2px solid var(--color-acento);
+    border-radius: 30px;
     font-weight: 600;
     font-size: 1em;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(139,46,69,0.6);
-    transition: background-color 0.3s ease;
+    transition: var(--transicion);
+    position: relative;
+    overflow: hidden;
   }
 
   .abrelo button:hover {
-    background-color: var(--color-botones-hover);
+    background-color: var(--color-enfasis);
+    color: white;
+    box-shadow: 0 0 15px rgba(139, 46, 69, 0.6);
+    transform: translateY(-3px);
   }
 
-  /* Notas emocionales ocultas */
+  .abrelo button::after {
+    content: '💗';
+    position: absolute;
+    left: -30px;
+    transition: var(--transicion);
+  }
+
+  .abrelo button:hover::after {
+    left: 10px;
+  }
+
   .nota-emocional {
     display: none;
     margin-top: 20px;
     font-style: italic;
-    background-color: var(--color-fondo-notas);
+    background-color: rgba(74, 51, 70, 0.5);
     color: var(--color-texto);
-    padding: 18px 22px;
-    border-left: 5px solid var(--color-borde-notas);
-    border-radius: 12px;
-    box-shadow: 0 0 8px var(--color-borde-notas);
+    padding: 25px;
+    border-left: 5px solid var(--color-acento);
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+    animation: fadeIn 0.5s ease;
   }
 
-  /* Línea del tiempo */
-  .linea-tiempo ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 18px;
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* --- LÍNEA DEL TIEMPO (ESTILO ELEGANTE) --- */
+  .linea-tiempo { position: relative; padding-left: 30px; }
+
+  .linea-tiempo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--color-acento);
+    border-radius: 2px;
   }
+
+  .linea-tiempo ul { list-style: none; }
 
   .linea-tiempo ul li {
-    background-color: #512f4a;
-    padding: 15px 20px;
-    border-radius: 15px;
-    flex: 1 1 140px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.7);
-    font-weight: 600;
-    font-size: 1em;
-    text-align: center;
-    color: var(--color-acento);
-    user-select: none;
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 20px;
   }
 
-  /* Playlist video */
-  iframe {
-    border: none;
-    width: 100%;
-    height: 166px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  .linea-tiempo ul li::before {
+    content: '💖';
+    position: absolute;
+    left: -42px;
+    top: 0;
+    background: var(--fondo-principal);
+    padding: 2px;
+    font-size: 1.2em;
   }
 
-  /* Apartado poema, cartas y demás */
-  .poemas ul, .cualidades ul, .cartas-no-enviadas ul, .futuro ul, .puzzle ul, .universo ul {
-    padding-left: 18px;
+  .linea-tiempo strong { color: var(--color-acento); font-size: 1.1em; }
+
+  /* --- MAPA DEL AMOR --- */
+  .mapa-amor { text-align: center; }
+
+  .mapa-container {
+    max-width: 1000px;
+    height: 450px;
+    margin: 0 auto;
+    border: 4px solid var(--color-acento);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--sombra-premium);
+    position: relative;
   }
 
-  /* Footer */
+  /* --- DETALLES Y LISTAS --- */
+  .cualidades ul li, .cartas-no-enviadas ul li, .futuro ul li, .poemas ul li, .calendario ul li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+  }
+
+  .cualidades ul li::before { content: '✨'; position: absolute; left: 0; color: var(--color-acento); }
+  .cartas-no-enviadas ul li::before { content: '✍️'; position: absolute; left: 0; }
+  .futuro ul li::before { content: '🔮'; position: absolute; left: 0; }
+  .poemas ul li::before { content: '📜'; position: absolute; left: 0; color: var(--color-titulos); }
+  .calendario ul li::before { content: '🗓️'; position: absolute; left: 0; }
+
+  /* --- SECCIÓN VIDEO (MEJORADA) --- */
+  .video-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--sombra-premium);
+    border: 3px solid var(--color-enfasis);
+  }
+
+  video { width: 100%; display: block; }
+
+  /* --- FOOTER ELEGANTE --- */
   footer {
     text-align: center;
     margin-top: 50px;
     background-color: #1B0D1B;
     color: var(--color-texto);
-    padding: 20px 10px;
-    border-radius: 0 0 20px 20px;
-    font-size: 1em;
-    font-family: Georgia, serif;
+    padding: 40px 20px;
+    border-radius: 30px 30px 0 0;
+    border-top: 2px solid var(--color-acento);
   }
 
-  footer a {
+  /* --- BOTÓN FLOTANTE MÚSICA Y LLUVIA --- */
+  #btn-musica {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--color-enfasis);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.8em;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    z-index: 1000;
+    transition: var(--transicion);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #btn-musica:hover { transform: scale(1.1) rotate(10deg); background: var(--color-botones-hover); }
+
+  /* --- EFECTO LLUVIA CORAZONES --- */
+  .heart {
+    position: fixed;
     color: var(--color-titulos);
-    text-decoration: underline;
+    font-size: 1.5em;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear forwards;
+    z-index: 999;
   }
 
-  /* Enlaces en listas */
-  ul li a {
-    color: var(--color-acento);
-    text-decoration: none;
-  }
-  ul li a:hover {
-    text-decoration: underline;
+  @keyframes fall {
+    to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
   }
 
-  /* Texto especial en frases */
-  .frases li {
-    font-weight: 500;
-  }
-
-  /* Sección video personalizada */
-  .video video {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-  }
-
-  /* Responsive */
-  @media(max-width: 600px) {
-    header h1 {
-      font-size: 1.8em;
-      padding: 20px;
-    }
-    .linea-tiempo ul {
-      flex-direction: column;
-      gap: 12px;
-    }
+  /* --- RESPONSIVE --- */
+  @media(max-width: 768px) {
+    header h1 { font-size: 2.2em; padding: 20px; }
+    section { padding: 20px; }
+    #reloj { font-size: 1.8em; }
   }
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<button id="btn-musica" onclick="toggleMusicaYCorazones()">🎵</button>
+
+<div id="player" style="position:absolute; top:-1000px;"></div>
+
 <header>
-  <h1>✨ Porque el amor... merece su propio lugar en Internet ✨</h1>
+  <h1 class="reveal">✨ Nuestra historia merece su propio rincón eterno ✨</h1>
 </header>
 
 <div class="container">
 
-  <!-- Carta de bienvenida -->
-  <section class="mensaje">
-    <p>✨ ¿Y si tu historia pudiera vivir en una página? ✨</p>
-    <p>A veces, una carta no basta.<br>
-      A veces, el amor, la amistad o la despedida merecen un espacio especial… único, eterno.</p>
-    <p>💌 Creamos páginas web personalizadas que capturan lo que sentiste, lo que viviste, lo que aún sueñas.<br>
-      Con tus fotos, tu carta, tu canción, tus flores favoritas… todo en un rincón hermoso de Internet que puedes enviar con solo un clic, o entregar con un código QR en una tarjeta.</p>
-    <p>🌹 Para reconciliarte.<br>🌻 Para declarar tu amor.<br>🌸 Para honrar a alguien que partió.<br>🌼 Para decir lo que nunca dijiste.</p>
-    <p>Porque el amor… merece su propio lugar en Internet.</p>
-    <p>📲 Escríbenos al 6141191610 y deja que tu historia inspire.<br>👇 Cuéntanos tu historia ❤️ y te creamos la pagina web y tu Qr para dejar huella.</p>
-    <p style="text-align:center; font-size:1.3em; color: var(--color-acento); font-weight: 700;">#DetallesConAmor #RegalaUnaPágina #HistoriasEternas #PáginasQueConectan #AmorDigital</p>
+  <section class="mensaje reveal" style="background: linear-gradient(145deg, var(--fondo-principal), #3a253d); border: 2px solid var(--color-enfasis);">
+    <p style="font-size: 1.3em; text-align: center; color: var(--color-titulos); font-weight: bold; margin-bottom: 20px;">🌹 ¿Y si tu amor viviera para siempre en la red? 🌹</p>
+    <p>A veces, el amor es tan grande que no cabe en una carta. Merece un espacio <strong>único, mágico y eterno</strong>.</p>
+    <p>💌 Creamos páginas web personalizadas que capturan la esencia de vuestra historia. Tus fotos, tu canción, tus fechas... todo en un rincón hermoso de Internet listo para compartir con un clic o un código QR.</p>
+    <p>Perfecto para aniversarios, declaraciones, reconciliaciones o para honrar un recuerdo inolvidable.</p>
+    <p style="text-align: center; margin-top: 20px; font-weight: bold;">📲 ¡Escríbenos al <span style="color: var(--color-acento);">6141191610</span> y hagamos magia juntos!</p>
+    <p style="text-align:center; font-size:1.1em; color: var(--color-acento); font-weight: 700; margin-top: 25px; letter-spacing: 1px;">#AmorDigital #RegalaUnaPagina #HistoriasEternas #DetallesÚnicos</p>
   </section>
 
-  <!-- Galería -->
-  <section class="galeria">
-    <h2>Imagina regalar esto...</h2>
-    <img src="https://www.kukyflor.com/blog/wp-content/uploads/2015/06/7_COLECC_800x600_AMOR.jpg" alt="Flores y amor" />
-    <img src="https://www.mundopsicologos.com/site/article/68030/56732/romantico-relacion_ai1.jpg" alt="Pareja romántica" />
-    <img src="https://cdn.businessinsider.es/sites/navi.axelspringer.es/public/media/image/2024/10/destino-paisaje-pareja-romantica-4252789.jpg?tf=3840x" alt="Paisaje romántico" />
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMNkPpZTk5wsMNZhssUmZ2XZq7nDV6DBfxpQ&s" alt="Chocolates" />
-    <img src="https://www.eluniversal.com.mx/resizer/v2/S5NMZV46YZF3HGG3774FD2XN6E.jpg?auth=39ba5f0143901cfcb01890da9a10f080b1243abd992d04b92de0efc19f4db989&smart=true&width=1100&height=666" alt="Lugar romántico" />
-    <img src="https://offloadmedia.feverup.com/monterreysecreto.com/wp-content/uploads/2022/02/18003031/Lugares-romanticos-cerca-de-Monterrey-1-1024x683.jpg" alt="Lugar romántico 2" />
+  <section class="contador-amor reveal">
+    <h2>Tiempo Amándonos</h2>
+    <p>Desde el primer día hasta hoy...</p>
+    <div id="reloj">Cargando tiempo...</div>
   </section>
 
-  <!-- Ábrelo cuando -->
-  <section class="abrelo">
-    <h2>Ábrelo cuando...</h2>
-    <div>
+  <section class="galeria reveal">
+    <h2>Nuestros Momentos</h2>
+    <div class="galeria-item"><img src="https://www.kukyflor.com/blog/wp-content/uploads/2015/06/7_COLECC_800x600_AMOR.jpg" alt="Flores" /></div>
+    <div class="galeria-item"><img src="https://www.mundopsicologos.com/site/article/68030/56732/romantico-relacion_ai1.jpg" alt="Pareja" /></div>
+    <div class="galeria-item"><img src="https://cdn.businessinsider.es/sites/navi.axelspringer.es/public/media/image/2024/10/destino-paisaje-pareja-romantica-4252789.jpg?tf=3840x" alt="Paisaje" /></div>
+    <div class="galeria-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMNkPpZTk5wsMNZhssUmZ2XZq7nDV6DBfxpQ&s" alt="Chocolates" /></div>
+  </section>
+
+  <section class="abrelo reveal">
+    <h2>💌 Ábrelo cuando...</h2>
+    <div class="abrelo-buttons">
       <button onclick="mostrarNota('enojo')">Estés enojada conmigo</button>
       <button onclick="mostrarNota('duda')">Dudes de mi amor</button>
       <button onclick="mostrarNota('soledad')">Te sientas sola</button>
       <button onclick="mostrarNota('extrañar')">Me extrañes</button>
     </div>
     <div id="nota-enojo" class="nota-emocional">
-      <p>Si estás enojada, lo entiendo. No soy perfecto y te he fallado. Pero estoy aquí, dispuesto a aprender de mis errores, a escucharte, a no huir. Porque te respeto y porque te amo.</p>
+      <p>Mi amor, si estás enojada, respira. Entiendo que no soy perfecto y fallo. Pero mi compromiso contigo es inquebrantable. Estoy aquí para escucharte, aprender y arreglarlo juntos. Te amo, incluso en los momentos difíciles.</p>
     </div>
     <div id="nota-duda" class="nota-emocional">
-      <p>Cuando dudes de mi amor, solo recuerda lo que estamos construyendo. Puede que no siempre lo demuestre bien, pero nunca ha dejado de estar aquí... latiendo por ti.</p>
+      <p>Cuando la duda aparezca, cierra los ojos y recuerda nuestras risas, nuestros abrazos y todo lo que hemos construido. Mi amor por ti es la única certeza que tengo en este mundo. Tú eres mi norte.</p>
     </div>
     <div id="nota-soledad" class="nota-emocional">
-      <p>Si te sientes sola, abre esta carta sabiendo que yo te pienso cada día. Aunque estemos distantes, tú estás conmigo. En mi mente, en mi alma y en mi corazón.</p>
+      <p>Aunque no esté físicamente a tu lado, mi alma te abraza. Piensa en mí y siénteme ahí. Nunca estarás sola porque vives en mi corazón, y yo en el tuyo.</p>
     </div>
     <div id="nota-extrañar" class="nota-emocional">
-      <p>¿Me extrañas? Yo también. Cada minuto sin ti me recuerda cuánto significas para mí. Espero poder abrazarte pronto, como si el tiempo no hubiera pasado.</p>
+      <p>Yo también te extraño, cada segundo. Que este sentimiento nos recuerde lo mucho que nos importamos. Pronto estaremos juntos de nuevo y recuperaremos el tiempo perdido con creces.</p>
     </div>
   </section>
 
-  <!-- Línea del tiempo -->
-  <section class="linea-tiempo">
-    <h2>Nuestra historia</h2>
+  <section class="linea-tiempo reveal">
+    <h2>Nuestra Historia</h2>
     <ul>
-      <li><strong>2010:</strong> Nos conocimos y empezó todo.</li>
-      <li><strong>10/12/2011:</strong> nuestro primer evento juntos.</li>
-      <li><strong>21/07/2013:</strong> Llegó nuestra dulce hija.</li>
-      <li><strong>13/02/2016:</strong> nuestra boda.</li>
-      <li><strong>18/09/2025:</strong> llego nuestro segundo hijo.</li>
+      <li><strong>Año 2010:</strong> El destino cruzó nuestros caminos. El inicio de todo.</li>
+      <li><strong>10 Dic 2011:</strong> Nuestro primer evento juntos. El momento en que supimos que era especial.</li>
+      <li><strong>21 Jul 2013:</strong> La llegada de nuestra dulce hija. Nuestro amor se multiplicó.</li>
+      <li><strong>13 Feb 2016:</strong> El sí quiero. Nuestra boda inolvidable.</li>
+      <li><strong>18 Sep 2025:</strong> Nuestro segundo hijo llegó para completar nuestra felicidad.</li>
     </ul>
   </section>
 
-<!-- Mapa del amor -->
-<section class="mapa-amor" style="padding: 50px 20px; background-color: #2e1d2f; text-align: center;">
-  <h2 style="font-size: 2.2em; color: #ff99cc; margin-bottom: 10px;">🗺️ Nuestro Mapa del Amor</h2>
-  <p style="color: #f2d4e6; max-width: 700px; margin: 0 auto 30px; font-size: 1.1em;">
-    Este no es cualquier mapa... es un mapa real creado con Google My Maps, donde están marcados lugares verdaderos que han sido parte de nuestra historia: dónde nos conocimos, nuestra primera cita, y todo aquello que el corazón recuerda.
-  </p>
-  <div style="max-width: 1000px; height: 550px; margin: 0 auto; border: 4px solid #ffb3d9; border-radius: 20px; overflow: hidden; box-shadow: 0 0 20px rgba(255, 153, 204, 0.4); position: relative;">
-    <iframe 
-      src="https://www.google.com/maps/d/u/1/embed?mid=1AeEANI_zJjoEVA_O-1F6GA4cXRwgGlM&ehbc=2E312F" 
-      width="100%" 
-      height="100%" 
-      style="border: 0; display: block; width: 100%; height: 100%;" 
-      allowfullscreen 
-      loading="lazy"
-    ></iframe>
-  </div>
-</section>
+  <section class="mapa-amor reveal">
+    <h2>🗺️ El Mapa de Nuestro Amor</h2>
+    <p style="margin-bottom: 20px; color: #f2d4e6;">Los lugares donde nuestros corazones latieron más fuerte.</p>
+    <div class="mapa-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112061.644122112!2d-106.16016140283258!3d28.6320015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e3ec0d6e66e811%3A0x6b83f06c11649232!2sChihuahua%2C%20Chih.%2C%20Mexico!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
 
-  <!-- Lo que veo en ti -->
-  <section class="cualidades">
-    <h2>“Lo que veo en ti”</h2>
-    <p>Una lista sincera de cualidades que amo de ti. No solo lo obvio, sino esas cosas pequeñas que solo tú notas:</p>
+  <section class="cualidades reveal">
+    <h2>✨ Lo que veo en ti</h2>
     <ul>
-      <li>Tu risa cuando intentas contar un chiste sin reírte antes.</li>
-      <li>La forma en que siempre sabes qué decir cuando yo no encuentro palabras.</li>
-      <li>Tu mirada que ilumina mis días oscuros.</li>
-      <li>Tu paciencia infinita conmigo.</li>
-      <li>La manera en que haces que todo parezca más fácil.</li>
+      <li>Tu sonrisa, capaz de iluminar el día más gris.</li>
+      <li>La fuerza y ternura con la que cuidas a nuestra familia.</li>
+      <li>Tu paciencia infinita y tu sabiduría para guiarme.</li>
+      <li>La forma mágica en que tus manos encajan con las mías.</li>
     </ul>
   </section>
 
-  <!-- Cartas que nunca envié -->
-  <section class="cartas-no-enviadas">
-    <h2>✍️ “Cartas que nunca envié”</h2>
-    <p>Mini-cartas con fechas ficticias o reales, como pensamientos que guardé en el tiempo.</p>
+  <section class="poemas reveal">
+    <h2>📜 Versos para ti</h2>
     <ul>
-      <li><em>1 de abril 2023:</em> Hoy pensé en ti más de lo que quería admitir.</li>
-      <li><em>14 de febrero 2024:</em> A veces las palabras sobran, pero te escribo igual.</li>
-      <li><em>23 de junio 2024:</em> Nunca te dije que tus lágrimas me duelen más que las mías.</li>
+      <li>"Encontrar tu amor fue encontrar la pieza que le faltaba a mi alma."</li>
+      <li>"No te amo por cómo eres, sino por cómo soy yo cuando estoy contigo."</li>
+      <li>"Nuestro amor es un lienzo que pintamos juntos cada día."</li>
     </ul>
   </section>
 
-  <!-- Así te imagino -->
-  <section class="futuro">
-    <h2>🎨 “Así te imagino”</h2>
-    <p>Visualizo un futuro contigo así:</p>
-    <ul>
-      <li>Una casa con un jardín lleno de flores.</li>
-      <li>Dos sillones viejitos viendo juntos el atardecer.</li>
-      <li>Compartir cafés y risas cada mañana.</li>
-    </ul>
+  <section class="video reveal">
+    <h2>🎥 Nuestro Video Especia</h2>
+    <div class="video-container">
+      <video controls poster="https://cdn.pixabay.com/photo/2017/01/10/19/05/heart-1966453_1280.jpg">
+        <source src="https://cdn.pixabay.com/photo/video/2015/08/21/09/23/presents-501_large.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </div>
+    <p style="text-align:center; margin-top: 15px; color: var(--color-acento); font-style: italic;">Un pequeño recordatorio de nuestra felicidad.</p>
   </section>
 
-  <!-- Nuestra banda sonora -->
-  <section class="musica">
-    <h2>🎶 Nuestra banda sonora</h2>
-    <iframe src="https://www.youtube.com/embed/KNZH-emehxA?autoplay=1&loop=1&playlist=KNZH-emehxA" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    <p style="margin-top: 8px;">Una canción que suena en mi corazón cuando pienso en ti.</p>
-  </section>
-
-  <!-- Playlist extra (sin nombres, solo video) -->
-  <section class="playlist">
-    <h2>Playlist romántica para ti</h2>
-    <iframe src="https://www.youtube.com/embed/yjdk8bZFWLE" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/mh1Ecilpdqg?list=RDmh1Ecilpdqg" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/hNDtsPMX7p0?list=RDhNDtsPMX7p0" allowfullscreen></iframe>
-  </section>
-
-  <!-- Poemas -->
-  <section class="poemas">
-    <h2>Poemas para ti</h2>
-    <ul>
-      <li>En tus ojos encontré la calma que buscaba.</li>
-      <li>Tu sonrisa es el verso más dulce de mi vida.</li>
-      <li>Contigo, cada día es un poema nuevo que escribir.</li>
-    </ul>
-  </section>
-
-  <!-- Piezas que me faltaban -->
-  <section class="puzzle">
-    <h2>🧩 Las piezas que me faltaban… hasta que llegaste tú</h2>
-    <p>Tu amor me completó y me transformó. Eres la pieza que encaja perfectamente en mi vida.</p>
-    <img src="https://cdn-icons-png.flaticon.com/512/1383/1383263.png" alt="Pieza de puzzle corazón" style="width:100px; display:block; margin: 15px auto;" />
-  </section>
-
-  <!-- Universo paralelo -->
-  <section class="universo">
-    <h2>🌌 Universo paralelo</h2>
-    <p>En otro universo, sin errores ni despedidas, tú y yo caminamos siempre juntos, sin miedo, sin dudas, solo amor puro e infinito.</p>
-  </section>
-
-  <!-- Calendario -->
-  <section class="calendario">
-    <h2>Calendario especial</h2>
-    <p>Guarda las fechas importantes para nosotros y revívelas cada año.</p>
-    <ul>
-      <li>10 Octubre - Cumpleaños </li>
-      <li>21 mayo - Cumpleaños </li>
-      <li>13 Febrero - aniversario</li>
-      <li>16 Agosto - nuestro evento </li>
-    </ul>
-  </section>
-
-  <!-- Video personalizado -->
-  <section class="video">
-    <h2>Video personalizado</h2>
-    <video controls poster="https://cdn.pixabay.com/photo/2017/01/10/19/05/heart-1966453_1280.jpg">
-      <source src="https://cdn.pixabay.com/download/audio/2021/09/21/audio_4c3bfb7a11.mp3?filename=love-music-14236.mp3" type="audio/mp3" />
-      Tu navegador no soporta el video.
-    </video>
-    <p style="text-align:center; margin-top: 10px; color: var(--color-acento); font-style: italic;">
-      Un recuerdo audiovisual hecho con todo mi amor.
-    </p>
-  </section>
-
-<!-- Footer -->
 <footer>
-  <p>© 2026 Regala una página de amor - Creado con 💖 por ti.</p>
-
-  <!-- Contador de visitas -->
-  <div style="margin-top: 15px;">
-    <script type="text/javascript" src="https://www.freevisitorcounters.com/auth.php?id=d1a02af3252dc3b71f788fee37b59ea9586f3308"></script>
-    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1356614/t/5"></script>
-    <p style="margin-top: 8px; font-size: 0.85em; color: var(--color-acento);">Visitas a esta página 💖</p>
-  </div>
+  <p>© 2025 Regala una página de amor - Creado con 💖 para ti.</p>
+  <p style="font-size: 0.8em; margin-top: 10px; color: #888;">Porque el amor merece ser eterno.</p>
 </footer>
 
 </div>
 
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
+  // --- FUNCIONES GENERALES ---
   function mostrarNota(id) {
-    document.querySelectorAll('.nota-emocional').forEach(div => div.style.display = 'none');
+    // Ocultar todas las notas primero con un efecto suave
+    document.querySelectorAll('.nota-emocional').forEach(div => {
+      div.style.display = 'none';
+    });
+    // Mostrar la nota seleccionada
     const elem = document.getElementById('nota-' + id);
-    if(elem) elem.style.display = 'block';
+    if(elem) {
+      elem.style.display = 'block';
+    }
+  }
+
+  // --- CONTADOR DE TIEMPO DINÁMICO ---
+  // CONFIGURACIÓN: Cambia esta fecha por la fecha de inicio real (Año, Mes-1, Día)
+  const fechaInicio = new Date(2010, 0, 1); // 1 de Enero de 2010
+
+  function actualizarContador() {
+    const ahora = new Date();
+    const diferencia = ahora - fechaInicio;
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferencia / 1000 / 60) % 60);
+    const segundos = Math.floor((diferencia / 1000) % 60);
+
+    // Formatear números para que siempre tengan dos dígitos (ej: 05 segundos)
+    const f = (num) => num.toString().padStart(2, '0');
+
+    document.getElementById('reloj').innerHTML = 
+      `${dias}d ${f(horas)}h ${f(minutos)}m ${f(segundos)}s`;
+  }
+  // Actualizar cada segundo
+  setInterval(actualizarContador, 1000);
+  actualizarContador(); // Ejecutar una vez al inicio
+
+  // --- ANIMACIONES AL DESLIZAR (Scroll Reveal) ---
+  const reveals = document.querySelectorAll('.reveal');
+  function revealOnScroll() {
+    for (let i = 0; i < reveals.length; i++) {
+      let windowHeight = window.innerHeight;
+      let elementTop = reveals[i].getBoundingClientRect().top;
+      let elementVisible = 150;
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add('active');
+        reveals[i].style.opacity = "1"; // Asegurar visibilidad
+      }
+    }
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll(); // Ejecutar una vez al inicio
+
+  // --- CONTROL DE MÚSICA Y LLUVIA DE CORAZONES ---
+  let player;
+  let musicaSonando = false;
+  let lluviaInterval;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '0',
+      width: '0',
+      videoId: 'KNZH-emehxA', // ID de la canción de YouTube
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  }
+
+  function onPlayerReady(event) {
+    // El reproductor está listo, pero no reproducimos automáticamente
+  }
+
+  function toggleMusicaYCorazones() {
+    const btn = document.getElementById('btn-musica');
+    if (!musicaSonando) {
+      player.playVideo();
+      btn.innerHTML = "⏸️";
+      btn.style.background = "#b44b6f";
+      startLluvia();
+      musicaSonando = true;
+    } else {
+      player.pauseVideo();
+      btn.innerHTML = "🎵";
+      btn.style.background = "#8B2E45";
+      stopLluvia();
+      musicaSonando = false;
+    }
+  }
+
+  // --- EFECTO LLUVIA DE CORAZONES ---
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '❤️'; // Puedes usar '💖', '💗', etc.
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = Math.random() * 3 + 2 + 's'; // Entre 2 y 5 segundos
+    heart.style.opacity = Math.random();
+    
+    document.body.appendChild(heart);
+    
+    // Eliminar el corazón después de la animación
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+
+  function startLluvia() {
+    createHeart(); // Crear uno inmediatamente
+    lluviaInterval = setInterval(createHeart, 300); // Crear uno cada 300ms
+  }
+
+  function stopLluvia() {
+    clearInterval(lluviaInterval);
   }
 </script>
 
 </body>
 </html>
-
